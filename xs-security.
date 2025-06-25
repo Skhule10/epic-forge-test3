@@ -1,0 +1,17 @@
+{
+  "xsappname": "sap-cap-app",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.User",
+      "description": "User Scope"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "UserRole",
+      "description": "Role for user",
+      "scope-references": ["$XSAPPNAME.User"]
+    }
+  ]
+}

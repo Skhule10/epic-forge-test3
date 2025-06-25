@@ -1,0 +1,13 @@
+{
+  "name": "sap-cap-app",
+  "version": "1.0.0",
+  "description": "Backend application using SAP CAP",
+  "dependencies": {
+    "@sap/cds": "^4",
+    "@sap/xssec": "^3"
+  },
+  "scripts": {
+    "start": "cds run",
+    "test": "jest"
+  }
+}
