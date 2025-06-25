@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View
+    controllerName="myApp.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <App>
+        <pages>
+            <Page title="SAP UI5/Fiori Digital Assistant">
+                <content>
+                    <VBox>
+                        <Text text="Welcome to the SAP Digital Assistant"/>
+                        <TextArea placeholder="Type your query here..." width="100%"/>
+                        <Button text="Submit" press="onSubmit"/>
+                    </VBox>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

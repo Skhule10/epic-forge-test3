@@ -1,0 +1,22 @@
+{
+    "xsappname": "digital-assistant",
+    "tenant-mode": "dedicated",
+    "scopes": [
+        {
+            "name": "$XSAPPNAME.user",
+            "description": "User Scope"
+        }
+    ],
+    "authorities": [
+        "$XSAPPNAME.user"
+    ],
+    "role-templates": [
+        {
+            "name": "UserRole",
+            "description": "Role for accessing the digital assistant",
+            "scope-references": [
+                "$XSAPPNAME.user"
+            ]
+        }
+    ]
+}

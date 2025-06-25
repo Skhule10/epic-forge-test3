@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SAP UI5/Fiori Digital Assistant</title>
+    <script src="resources/sap-ui-core.js"
+            id="sap-ui-bootstrap"
+            data-sap-ui-theme="sap_belize"
+            data-sap-ui-libs="sap.m"
+            data-sap-ui-xx-bindingSyntax="complex"
+            data-sap-ui-resourceroots='{"myApp": "./"}'>
+    </script>
+    <script>
+        sap.ui.getCore().attachInit(function () {
+            sap.ui.require([
+                "myApp/controller/App.controller"
+            ], function (AppController) {
+                new AppController().placeAt("content");
+            });
+        });
+    </script>
+</head>
+<body class="sapUiBody">
+    <div id="content"></div>
+</body>
+</html>
