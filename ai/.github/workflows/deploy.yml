@@ -1,0 +1,42 @@
+
+name: Deploy FastAPI to SAP Cloud Foundry
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: |
+        python -m unittest discover
+
+    - name: Deploy to Cloud Foundry
+      env:
+        CF_API: ${{ secrets.CF_API }}
+        CF_ORG: ${{ secrets.CF_ORG }}
+        CF_SPACE: ${{ secrets.CF_SPACE }}
+        CF_USERNAME: ${{ secrets.CF_USERNAME }}
+        CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
+      run: |
+        npm install -g cf-cli
+        cf api $CF_API
+        cf auth $CF_USERNAME $CF_PASSWORD
+        cf target -o $CF_ORG -s $CF_SPACE
+        cf push
